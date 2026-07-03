@@ -1,0 +1,26 @@
+# Render.com Blueprint — deploy with "New +" -> "Blueprint" after pushing to Git.
+services:
+  - type: web
+    name: yt-music-api
+    runtime: docker
+    plan: starter            # $7/mo — always-on, no cold starts (free tier sleeps)
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health # Render auto-restarts the service if this fails
+    autoDeploy: true
+    envVars:
+      - key: PORT
+        value: "8000"
+      - key: LOG_LEVEL
+        value: INFO
+      - key: API_KEY
+        generateValue: true  # Render generates a secure random key for you
+      - key: TOKEN_TTL
+        value: "300"
+      - key: ONE_TIME_TOKENS
+        value: "true"
+      - key: VIDEO_MAX_HEIGHT
+        value: "720"
+      - key: URL_CACHE_TTL
+        value: "1800"
+      - key: MAX_EXTRACTIONS
+        value: "4"

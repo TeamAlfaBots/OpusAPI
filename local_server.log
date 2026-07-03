@@ -1,0 +1,19 @@
+INFO:     Started server process [658]
+INFO:     Waiting for application startup.
+2026-07-02 12:19:09 | INFO     | api.streamer | Streamer HTTP client started
+2026-07-02 12:19:09 | INFO     | api.main | Private YouTube Media API started (token_ttl=300s, one_time=True, api_key=enabled)
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:38740 - "GET /health HTTP/1.1" 200 OK
+2026-07-02 12:19:12 | WARNING  | api.routes | Rejected request with missing/invalid API key
+INFO:     127.0.0.1:38746 - "GET /download?url=dQw4w9WgXcQ&type=audio HTTP/1.1" 401 Unauthorized
+2026-07-02 12:19:12 | INFO     | api.youtube | Extracting media info: video=dQw4w9WgXcQ type=audio
+2026-07-02 12:19:15 | INFO     | api.youtube | Resolved dQw4w9WgXcQ/audio ('Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster)') in 2.39s
+2026-07-02 12:19:15 | INFO     | api.tokens | Issued token for video=dQw4w9WgXcQ type=audio ttl=300s
+INFO:     127.0.0.1:38752 - "GET /download?url=dQw4w9WgXcQ&type=audio HTTP/1.1" 200 OK
+2026-07-02 12:19:15 | INFO     | api.routes | Streaming dQw4w9WgXcQ/audio -> client (status=206, range=bytes=0-262143)
+INFO:     127.0.0.1:38762 - "GET /stream/dQw4w9WgXcQ?type=audio HTTP/1.1" 206 Partial Content
+2026-07-02 12:19:15 | WARNING  | api.tokens | Rejected unknown token for video=dQw4w9WgXcQ
+INFO:     127.0.0.1:38776 - "GET /stream/dQw4w9WgXcQ?type=audio HTTP/1.1" 403 Forbidden
+2026-07-02 12:19:15 | WARNING  | api.tokens | Rejected unknown token for video=dQw4w9WgXcQ
+INFO:     127.0.0.1:38782 - "GET /stream/dQw4w9WgXcQ?type=audio HTTP/1.1" 403 Forbidden

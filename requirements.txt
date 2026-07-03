@@ -1,0 +1,5 @@
+fastapi>=0.115
+uvicorn[standard]>=0.30
+yt-dlp>=2025.6.9
+httpx>=0.27
+pydantic-settings>=2.4
